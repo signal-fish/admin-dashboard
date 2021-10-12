@@ -30,10 +30,8 @@ const Topbar = () => {
 const Container = styled.div`
   width: 100%;
   height: 60px;
-  background-color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  z-index: 9999;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 `;
 
 const Wrapper = styled.div`

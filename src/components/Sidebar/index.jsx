@@ -5,8 +5,8 @@ const Sidebar = () => {
   return (
     <Container>
       <Wrapper>
-        {sidebarItems.map(sidebarItem => {
-          const {id, title, items} = sidebarItem
+        {sidebarItems.map((sidebarItem) => {
+          const { id, title, items } = sidebarItem;
           return (
             <Menu key={id}>
               <Title>{title}</Title>
@@ -24,17 +24,12 @@ const Sidebar = () => {
             </Menu>
           );
         })}
-        </Wrapper>
+      </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-const Container = styled.div`
-  flex: 1;
-  height: calc(100vh - 50px);
-  position: sticky;
-  top: 50px;
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -60,17 +55,19 @@ const ListItem = styled.li`
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-size: 18px;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: rgb(240, 240, 255);
   }
 `;
 
 const IconWrapper = styled.span`
   margin-right: 5px;
-  font-size: 20px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-
-
-export default Sidebar
+export default Sidebar;
