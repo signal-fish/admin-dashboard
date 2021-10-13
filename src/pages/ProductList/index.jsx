@@ -1,48 +1,47 @@
 import styled from "styled-components";
+import { useGlobalContext } from "../../context";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { useGlobalContext } from "../../context";
 
-const UserList = () => {
-  const { users, editUser, deleteUser } = useGlobalContext();
+const ProductList = () => {
+  const { products, editProduct, deleteProducts } = useGlobalContext();
 
-  
   const columns = [
-    { field: "id", headerName: "ID", width: 110 },
+    { field: "id", headerName: "ID", width: 90 },
     {
-      field: "user",
-      headerName: "User",
-      width: 200,
+      field: "product",
+      headerName: "Product",
+      width: 250,
       renderCell: (params) => {
         return (
-          <ImageWrapper>
-            <Image src={params.row.avatar} alt={params.row.username} />
-            {params.row.username}
-          </ImageWrapper>
+          <ProductListItem>
+            <ProductImage src={params.row.img} alt={params.row.name} />
+            {params.row.name}
+          </ProductListItem>
         );
       },
     },
-    { field: "email", headerName: "Email", width: 250 },
+    { field: "stock", headerName: "Stock", width: 150 },
     {
       field: "status",
       headerName: "Status",
       width: 150,
     },
     {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 200,
+      field: "price",
+      headerName: "Price",
+      width: 160,
     },
     {
       field: "action",
       headerName: "Action",
-      width: "150",
+      width: 150,
       renderCell: (params) => {
         return (
           <>
-            <Button onClick={() => editUser(params.row.id)}>Edit</Button>
+            <Edit onClick={() => editProduct(params.row.id)}>Edit</Edit>
             <DeleteWrapper>
-              <DeleteOutline onClick={() => deleteUser(params.row.id)} />
+              <DeleteOutline onClick={() => deleteProducts(params.row.id)} />
             </DeleteWrapper>
           </>
         );
@@ -52,13 +51,13 @@ const UserList = () => {
   return (
     <Container>
       <DataGrid
-        rows={users}
+        rows={products}
         disableSelectionOnClick
         columns={columns}
         rowsPerPageOptions={[8]}
         pageSize={8}
-        autoHeight
         checkboxSelection
+        autoHeight  
       />
     </Container>
   );
@@ -69,20 +68,21 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const ImageWrapper = styled.div`
+const ProductListItem = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const Image = styled.img`
-  width: 32px;
-  height: 32px;
+const ProductImage = styled.img`
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+  background: #fff;
 `;
 
-const Button = styled.button`
+const Edit = styled.button`
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -95,7 +95,6 @@ const Button = styled.button`
 const DeleteWrapper = styled.span`
   color: red;
   cursor: pointer;
-  display: flex;
-  align-items: center;
 `;
-export default UserList;
+
+export default ProductList;

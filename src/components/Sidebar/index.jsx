@@ -29,7 +29,9 @@ const Sidebar = () => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  background: #ebebeb;
+`;
 
 const Wrapper = styled.div`
   padding: 20px;

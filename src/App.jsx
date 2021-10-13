@@ -2,7 +2,10 @@ import styled from "styled-components";
 import Topbar from "./components/Topbar";
 // import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
-import UserList from "./pages/UserList";
+// import UserList from "./pages/UserList";
+// import NewUser from "./pages/NewUser";
+// import ProductList from "./pages/ProductList";
+import Product from "./pages/Product";
 // import User from "./pages/User";
 
 const App = () => {
@@ -16,8 +19,11 @@ const App = () => {
           <Sidebar />
           <Main>
             {/* <Home /> */}
-            <UserList />
+            {/* <UserList /> */}
             {/* <User /> */}
+            {/* <NewUser></NewUser> */}
+            {/* <ProductList /> */}
+            <Product/>
           </Main>
         </Bottom>
       </Wrapper>
@@ -37,8 +43,7 @@ const Wrapper = styled.div`
   grid-template-rows: 60px calc(100vh - 60px);
 `;
 
-const Top = styled.div`
-`;
+const Top = styled.div``;
 
 const Bottom = styled.div`
   display: grid;
@@ -47,5 +52,6 @@ const Bottom = styled.div`
 
 const Main = styled.div`
   overflow-y: scroll;
+  background: #ebebeb;
 `;
 export default App;

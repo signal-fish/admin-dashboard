@@ -31,6 +31,7 @@ const Container = styled.div`
   width: 100%;
   height: 60px;
   z-index: 9999;
+  background: #e4dddd;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 `;
 

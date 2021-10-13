@@ -536,7 +536,7 @@ export const productRows = [
   {
     id: 6,
     name: "Sony Headphone",
-    img: "assets/i-watch.png",
+    img: "assets/p6.png",
     stock: 1231,
     status: "active",
     price: "$320.00",
@@ -552,7 +552,7 @@ export const productRows = [
   {
     id: 8,
     name: "Sangsung X7",
-    img: "assets/iPhone.jpeg",
+    img: "assets/p8.jpeg",
     stock: 3123,
     status: "active",
     price: "$320.00",
@@ -568,10 +568,142 @@ export const productRows = [
   {
     id: 10,
     name: "Macbook Pro",
-    img: "assets/p10.jpeg",
+    img: "assets/p10.png",
     stock: 1223,
     status: "active",
     price: "$2999.00",
   },
 ];
+export const productSalesData = [
+  {
+    name: "Jan",
+    Sales: 4000,
+  },
+  {
+    name: "Feb",
+    Sales: 3370,
+  },
+  {
+    name: "Mar",
+    Sales: 3698,
+  },
+  {
+    name: "Apr",
+    Sales: 4354,
+  },
+  {
+    name: "May",
+    Sales: 4687,
+  },
+  {
+    name: "Jun",
+    Sales: 5024,
+  },
+  {
+    name: "Jul",
+    Sales: 5930,
+  },
+  {
+    name: "Aug",
+    Sales: 4503,
+  },
+  {
+    name: "Sep",
+    Sales: 4200,
+  },
+  {
+    name: "Oct",
+    Sales: 3104,
+  },
+  {
+    name: "Nov",
+    Sales: 2926,
+  },
+  {
+    name: "Dec",
+    Sales: 4687,
+  },
+];
 
+export const singleProductRows = [
+  {
+    id: 1,
+    name: "Apple Airpods",
+    image: "assets/p1.png",
+    sales: "3845",
+    active: "yes",
+    inStock: "no",
+  },
+  {
+    id: 2,
+    name: "iPhone 11",
+    image: "assets/p2.jpeg",
+    sales: "2545",
+    active: "yes",
+    inStock: "yes",
+  },
+  {
+    id: 3,
+    name: "iPhone 12",
+    image: "assets/p3.png",
+    sales: "90426",
+    active: "yes",
+    inStock: "yes",
+  },
+  {
+    id: 4,
+    name: "Redmi",
+    image: "assets/p4.jpeg",
+    sales: "945",
+    active: "no",
+    inStock: "no",
+  },
+  {
+    id: 5,
+    name: "Beats Studio",
+    image: "assets/p5.jpeg",
+    sales: "1809",
+    active: "yes",
+    inStock: "no",
+  },
+  {
+    id: 6,
+    name: "Sony Headphone",
+    image: "assets/p6.png",
+    sales: "2398",
+    active: "yes",
+    inStock: "yes",
+  },
+  {
+    id: 7,
+    name: "iPhone SE",
+    image: "assets/p7.jpeg",
+    sales: "9886",
+    active: "yes",
+    inStock: "yes",
+  },
+  {
+    id: 8,
+    name: "Sangsung X7",
+    image: "assets/p8.jpeg",
+    sales: "3749",
+    active: "no",
+    inStock: "no",
+  },
+  {
+    id: 9,
+    name: "Google Pixel",
+    image: "assets/p9.jpeg",
+    sales: "5845",
+    active: "yes",
+    inStock: "yes",
+  },
+  {
+    id: 10,
+    name: "Macbook Pro",
+    image: "assets/p10.png",
+    sales: "4860",
+    active: "yes",
+    inStock: "yes",
+  },
+];
