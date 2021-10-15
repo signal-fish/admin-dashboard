@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "../../context";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const { products, editProduct, deleteProducts } = useGlobalContext();
@@ -39,7 +40,9 @@ const ProductList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Edit onClick={() => editProduct(params.row.id)}>Edit</Edit>
+            <Link to={"/product/" + params.row.id}>
+              <Edit onClick={() => editProduct(params.row.id)}>Edit</Edit>
+            </Link>
             <DeleteWrapper>
               <DeleteOutline onClick={() => deleteProducts(params.row.id)} />
             </DeleteWrapper>
@@ -57,15 +60,16 @@ const ProductList = () => {
         rowsPerPageOptions={[8]}
         pageSize={8}
         checkboxSelection
-        autoHeight  
+        autoHeight
       />
     </Container>
   );
 };
 
 const Container = styled.div`
-  width: 100%;
   height: 100%;
+  width: calc(100% - 20px);
+  padding-left: 20px;
 `;
 
 const ProductListItem = styled.div`
@@ -90,11 +94,21 @@ const Edit = styled.button`
   color: white;
   cursor: pointer;
   margin-right: 20px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const DeleteWrapper = styled.span`
   color: red;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export default ProductList;

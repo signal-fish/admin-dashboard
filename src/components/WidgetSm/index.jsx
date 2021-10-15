@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { newJoinMembersData } from "../../data";
 import { Visibility } from "@material-ui/icons";
+import { tablet } from "../../responsive";
 
 const WidgetSm = () => {
   return (
@@ -36,6 +37,11 @@ const Container = styled.div`
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   padding: 20px;
   margin-right: 20px;
+
+  ${tablet({
+    marginRight: 0,
+    marginBottom: "20px",
+  })}
 `;
 
 const Title = styled.h3`
@@ -54,6 +60,7 @@ const ListItem = styled.li`
   align-items: center;
   justify-content: space-between;
   margin: 20px 0px;
+  width: 100%;
 `;
 
 const Image = styled.img`
@@ -61,11 +68,13 @@ const Image = styled.img`
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 20px;
 `;
 
 const User = styled.div`
   display: flex;
   flex-direction: column;
+  width: 135px;
 `;
 
 const Name = styled.span`

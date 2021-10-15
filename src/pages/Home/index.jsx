@@ -4,6 +4,7 @@ import Chart from "../../components/Chart";
 import { userData } from "../../data";
 import WidgetLg from "../../components/WidgetLg";
 import WidgetSm from "../../components/WidgetSm";
+import { tablet } from "../../responsive";
 
 const Home = () => {
   return (
@@ -33,6 +34,10 @@ const Wrapper = styled.div`
 const HomeWidget = styled.div`
   display: flex;
   margin: 20px;
+
+  ${tablet({
+    flexDirection: "column"
+  })}
 `;
 
 export default Home;

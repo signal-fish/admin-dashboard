@@ -1,27 +1,37 @@
 import styled from "styled-components";
-import { sidebarItems } from "../../data";
+import { Link } from "react-router-dom";
+import { useGlobalContext } from "../../context";
 
 const Sidebar = () => {
+  const { selected, setSelected, showSidebar, sidebarItems, setShowSidebar } = useGlobalContext();
+  console.log(showSidebar)
   return (
-    <Container>
+    <Container showSidebar={showSidebar}>
       <Wrapper>
         {sidebarItems.map((sidebarItem) => {
           const { id, title, items } = sidebarItem;
           return (
-            <Menu key={id}>
+            <Items key={id}>
               <Title>{title}</Title>
               <List>
                 {items.map((item) => {
-                  const { id, icon, name } = item;
+                  const { id, icon, name, link, flag } = item;
                   return (
-                    <ListItem key={id}>
-                      <IconWrapper>{icon}</IconWrapper>
-                      {name}
-                    </ListItem>
+                    <Link to={link} style={{ textDecoration: "none" }}>
+                      <ListItem
+                        flag={flag}
+                        selected={selected}
+                        key={id}
+                        onClick={() => {setSelected(flag); setShowSidebar(!showSidebar)}}
+                      >
+                        <IconWrapper>{icon}</IconWrapper>
+                        {name}
+                      </ListItem>
+                    </Link>
                   );
                 })}
               </List>
-            </Menu>
+            </Items>
           );
         })}
       </Wrapper>
@@ -30,7 +40,15 @@ const Sidebar = () => {
 };
 
 const Container = styled.div`
-  background: #ebebeb;
+  background: #e4dddd;
+  overflow-y: scroll;
+  z-index: 1;
+  transition: all 0.3s linear;
+  transform: ${(props) =>
+    props.showSidebar ? "translateX(0)" : "translateX(-250px)"};
+  position: absolute;
+  width: 250px;
+  height: calc(100vh - 60px);
 `;
 
 const Wrapper = styled.div`
@@ -38,7 +56,7 @@ const Wrapper = styled.div`
   color: #555;
 `;
 
-const Menu = styled.div`
+const Items = styled.div`
   margin-bottom: 10px;
 `;
 
@@ -58,6 +76,9 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   font-size: 18px;
+  color: #420420;
+  background-color: ${(props) =>
+    props.flag === props.selected ? "rgb(240, 240, 255)" : ""};
 
   &:hover,
   &:focus {

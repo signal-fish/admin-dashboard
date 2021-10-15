@@ -8,25 +8,21 @@ import {
   Publish,
 } from "@material-ui/icons";
 import { useGlobalContext } from "../../context";
+import { Link } from "react-router-dom";
+import { tablet } from "../../responsive";
 
 const User = () => {
-  const {singleUser} = useGlobalContext()
-  const {
-    name,
-    userName,
-    jobTitle,
-    image,
-    birthday,
-    phone,
-    email,
-    address,
-  } = singleUser;
+  const { singleUser } = useGlobalContext();
+  const { name, userName, jobTitle, image, birthday, phone, email, address } =
+    singleUser;
 
   return (
     <Container>
       <TitleWrapper>
         <Title>Edit User</Title>
-        <CreateButton>Create</CreateButton>
+        <Link to="/newUser">
+          <CreateButton>Create</CreateButton>
+        </Link>
       </TitleWrapper>
       <UserWrapper>
         <UserShow>
@@ -143,11 +139,19 @@ const CreateButton = styled.button`
   color: #fff;
   cursor: pointer;
   font-size: 16px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const UserWrapper = styled.div`
   display: flex;
   margin-top: 20px;
+
+  ${tablet({
+    flexDirection: "column",
+  })}
 `;
 
 const UserShow = styled.div`
@@ -156,6 +160,11 @@ const UserShow = styled.div`
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   margin-right: 20px;
+
+  ${tablet({
+    marginRight: "0",
+    marginBottom: "20px",
+  })}
 `;
 
 const UserShowTop = styled.div`
@@ -241,9 +250,17 @@ const UserUpdateForm = styled.form`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+
+  ${tablet({
+    flexDirection: "column",
+  })}
 `;
 
-const UserUpdateLeft = styled.div``;
+const UserUpdateLeft = styled.div`
+  ${tablet({
+    marginBottom: "20px",
+  })}
+`;
 
 const UserUpdateItem = styled.div`
   display: flex;
@@ -258,9 +275,13 @@ const Label = styled.label`
 
 const Input = styled.input`
   border: none;
-  width: 300px;
+  width: 250px;
   height: 30px;
   border-bottom: 1px solid gray;
+
+  ${tablet({
+    width: "auto"
+  })}
 `;
 
 const UserUpdateRight = styled.div`
@@ -280,6 +301,10 @@ const UserUpdateImage = styled.img`
   border-radius: 10px;
   object-fit: cover;
   margin-right: 20px;
+
+  ${tablet({
+    marginBottom: "20px",
+  })}
 `;
 
 const UserUpdateIcon = styled.span`
@@ -294,6 +319,14 @@ const UpdateButton = styled.button`
   background-color: darkblue;
   color: #fff;
   font-weight: 600;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  /* ${tablet({
+  width: "250px"
+  })} */
 `;
 
 export default User;

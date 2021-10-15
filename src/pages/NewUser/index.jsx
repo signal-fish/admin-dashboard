@@ -58,7 +58,9 @@ const NewUser = () => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-left: 20px;
+`;
 
 const Title = styled.h1``;
 
@@ -116,8 +118,10 @@ const Create = styled.button`
   padding: 10px 10px;
   font-weight: 600;
   border-radius: 10px;
-  margin-top: 30px;
+  margin: 40px 20px 20px 0;
   cursor: pointer;
+  width: 400px;
+  height: 40px;
 
   &:hover {
     opacity: 0.8;

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useEffect } from "react";
 import {
+  sidebarItems,
   singleUserRows,
   userRows,
   productRows,
@@ -18,6 +19,8 @@ const AppProvider = ({ children }) => {
   const [singleProduct, setSingleProduct] = useState(
     productRows[productIndex - 1]
   );
+  const [selected, setSelected] = useState("d-home");
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const editUser = (id) => {
     setIndex(id);
@@ -42,10 +45,11 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     setSingleProduct(singleProductRows[productIndex - 1]);
   }, [productIndex]);
-  
+
   return (
     <AppContext.Provider
       value={{
+        sidebarItems,
         users,
         singleUser,
         editUser,
@@ -54,6 +58,10 @@ const AppProvider = ({ children }) => {
         singleProduct,
         editProduct,
         deleteProducts,
+        selected,
+        setSelected,
+        showSidebar,
+        setShowSidebar,
       }}
     >
       {children}

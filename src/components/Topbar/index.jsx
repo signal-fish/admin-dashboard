@@ -1,26 +1,20 @@
 import styled from "styled-components";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import { Settings } from "@material-ui/icons";
+import { mobile } from "../../responsive";
 
 const Topbar = () => {
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Logo>Signal Fish</Logo>
+          <Logo src="assets/logo.jpeg" alt="logo" />
+          <Title>Admin DashBoard</Title>
         </Left>
         <Right>
-          <IconWrapper>
-            <NotificationsNone />
-            <Span>5</Span>
-          </IconWrapper>
-          <IconWrapper>
-            <Language />
-            <Span>2</Span>
-          </IconWrapper>
+          <Avatar src="assets/signal-fish.jpg" alt="Signal Fish"></Avatar>
           <IconWrapper>
             <Settings />
           </IconWrapper>
-          <Avatar src="assets/signal-fish.jpg" alt="Signal Fish"></Avatar>
         </Right>
       </Wrapper>
     </Container>
@@ -43,13 +37,28 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Left = styled.div``;
+const Left = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const Logo = styled.span`
+const Logo = styled.img`
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 20px;
+`;
+
+const Title = styled.span`
   font-weight: bold;
   font-size: 30px;
   color: darkblue;
   cursor: pointer;
+
+  ${mobile({
+    display: "none"
+  })}
 `;
 
 const Right = styled.div`
@@ -61,23 +70,8 @@ const IconWrapper = styled.div`
   position: relative;
   cursor: pointer;
   margin-top: 5px;
-  margin-right: 15px;
+  margin-left: 15px;
   color: #555;
-`;
-
-const Span = styled.span`
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  top: -3px;
-  right: 0px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
 `;
 
 const Avatar = styled.img`

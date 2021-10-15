@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { featuredItems } from "../../data"
+import { tablet } from "../../responsive"
 
 const FeaturedInfo = () => {
   return (
@@ -30,6 +31,10 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  ${tablet({
+    flexDirection: "column",
+  })}
 `;
 
 const FeaturedItem = styled.div`
@@ -40,6 +45,10 @@ const FeaturedItem = styled.div`
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+  ${tablet({
+    marginBottom: "20px",
+  })}
 `;
 
 const Title = styled.span`
@@ -50,6 +59,8 @@ const FeaturedMoneyWrapper = styled.div`
   margin: 10px 0px;
   display: flex;
   align-items: center;
+
+
 `;
 
 const FeaturedMoney = styled.span`

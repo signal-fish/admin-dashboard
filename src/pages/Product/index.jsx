@@ -3,6 +3,8 @@ import Chart from "../../components/Chart";
 import { Publish } from "@material-ui/icons";
 import { useGlobalContext } from "../../context";
 import { productSalesData } from "../../data";
+import { Link } from "react-router-dom";
+import { tablet } from "../../responsive";
 
 const Product = () => {
   const { singleProduct } = useGlobalContext();
@@ -12,7 +14,9 @@ const Product = () => {
     <Container>
       <TitleWrapper>
         <Title>Product</Title>
-        <Create>Create</Create>
+        <Link to="/newproduct">
+          <Create>Create</Create>
+        </Link>
       </TitleWrapper>
 
       <Top>
@@ -21,6 +25,7 @@ const Product = () => {
             data={productSalesData}
             dataKey="Sales"
             title="Sales Performance"
+            aspect={3.5 / 1}
           />
         </TopLeft>
         <TopRight>
@@ -92,7 +97,9 @@ const TitleWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+  padding-left: 20px;
+`;
 
 const Create = styled.button`
   width: 80px;
@@ -104,14 +111,22 @@ const Create = styled.button`
   font-size: 16px;
   cursor: pointer;
   margin-right: 20px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const Top = styled.div`
   display: flex;
+
+  ${tablet({
+    flexDirection: "column"
+  })}
 `;
 
 const TopLeft = styled.div`
-  flex: 1;
+  flex: 1.5;
 `;
 
 const TopRight = styled.div`
@@ -128,8 +143,8 @@ const ImageWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background: #fff;
   border-radius: 50%;
   object-fit: cover;
@@ -138,6 +153,7 @@ const Image = styled.img`
 
 const Name = styled.span`
   font-weight: 600;
+  font-size: 25px;
 `;
 
 const InfoWrapper = styled.div`
@@ -149,6 +165,7 @@ const Item = styled.div`
   width: 150px;
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 `;
 
 const Key = styled.span``;
@@ -167,11 +184,19 @@ const Bottom = styled.div`
 const Form = styled.form`
   display: flex;
   justify-content: space-between;
+
+  ${tablet({
+    flexDirection: "column",
+  })}
 `;
 
 const FormLeft = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${tablet({
+    marginBottom:"20px"
+  })}
 `;
 
 const Label = styled.label`
@@ -210,6 +235,10 @@ const UploadImage = styled.img`
   object-fit: cover;
   margin-right: 20px;
   background: #fff;
+
+  ${tablet({
+    marginBottom: "20px",
+  })}
 `;
 
 const Update = styled.button`
@@ -220,6 +249,10 @@ const Update = styled.button`
   color: white;
   font-weight: 600;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export default Product;
